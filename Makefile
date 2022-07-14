@@ -5,6 +5,4 @@ run:fmt
 build:
 	goreleaser release --snapshot
 docker_build:
-	docker build -t everpcpc/alertmanager-webhook-feishu .
-docker_push:docker_build
-	docker push everpcpc/alertmanager-webhook-feishu
+	docker buildx build -t everpcpc/alertmanager-webhook-feishu --platform linux/amd64,linux/arm64 --push .

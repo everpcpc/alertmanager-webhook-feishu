@@ -1,4 +1,4 @@
-FROM golang:1.16
+FROM golang:1.18
 WORKDIR /app
 COPY . .
 RUN CGO_ENABLED=0 GOOS=linux go build -o alertmanager-webhook-feishu .
