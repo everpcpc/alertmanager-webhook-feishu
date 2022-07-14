@@ -4,11 +4,13 @@ import (
 	"embed"
 	"errors"
 	"fmt"
-	"github.com/sirupsen/logrus"
 	"net/url"
+	"path"
 	"strings"
 	"text/template"
 	"time"
+
+	"github.com/sirupsen/logrus"
 )
 
 //go:embed templates/*
@@ -87,16 +89,16 @@ func GetEmbedTemplate(filename string) (*template.Template, error) {
 	return nil, errors.New("template not found")
 }
 
-func GetCustomTemplate(filename string) (*template.Template, error) {
-	if t, ok := customTemplates[filename]; ok {
+func GetCustomTemplate(filepath string) (*template.Template, error) {
+	if t, ok := customTemplates[filepath]; ok {
 		return t, nil
 	}
 
-	t, err := template.New(filename).Funcs(funcMap).ParseFiles(filename)
+	t, err := template.New(path.Base(filepath)).Funcs(funcMap).ParseFiles(filepath)
 	if err != nil {
 		return nil, err
 	}
-	customTemplates[filename] = t
+	customTemplates[filepath] = t
 
 	return t, nil
 }
