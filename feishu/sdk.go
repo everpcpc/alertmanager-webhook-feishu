@@ -5,10 +5,11 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/sirupsen/logrus"
 	"io"
 	"net/http"
 	"time"
+
+	"github.com/sirupsen/logrus"
 )
 
 type Sdk struct {
@@ -70,7 +71,7 @@ func (s Sdk) BatchGetID(emails []string) (map[string]string, error) {
 	}
 
 	if response.Code != 0 {
-		return nil, errors.New(fmt.Sprintf("code: %d, err: %s", response.Code, response.Msg))
+		return nil, fmt.Errorf("code: %d, err: %s", response.Code, response.Msg)
 	}
 
 	res := make(map[string]string)
@@ -107,7 +108,7 @@ func (s Sdk) TenantAccessToken() (*tokenResponse, error) {
 	}
 
 	if response.Code != 0 {
-		return nil, errors.New(fmt.Sprintf("code: %d, err: %s", response.Code, response.Msg))
+		return nil, fmt.Errorf("code: %d, err: %s", response.Code, response.Msg)
 	}
 
 	return &response, nil
@@ -154,7 +155,7 @@ func (s Sdk) WebhookV2(webhook string, body io.Reader) error {
 	logrus.Debug(resp)
 
 	if resp.Code != 0 {
-		return errors.New(fmt.Sprintf("code: %d, err: %s", resp.Code, resp.Msg))
+		return fmt.Errorf("code: %d, err: %s", resp.Code, resp.Msg)
 	}
 
 	return nil

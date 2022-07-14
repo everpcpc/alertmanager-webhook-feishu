@@ -1,12 +1,14 @@
 package tmpl
 
 import (
-	"github.com/prometheus/alertmanager/template"
-	"github.com/stretchr/testify/require"
-	"github.com/xujiahua/alertmanager-webhook-feishu/model"
 	"os"
 	"testing"
 	"time"
+
+	"github.com/prometheus/alertmanager/template"
+	"github.com/stretchr/testify/require"
+
+	"alertmanager-webhook-feishu/model"
 )
 
 func TestFeishuCard(t *testing.T) {

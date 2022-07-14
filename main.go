@@ -21,7 +21,7 @@ THE SOFTWARE.
 */
 package main
 
-import "github.com/xujiahua/alertmanager-webhook-feishu/cmd"
+import "alertmanager-webhook-feishu/cmd"
 
 func main() {
 	cmd.Execute()

@@ -5,6 +5,6 @@ run:fmt
 build:
 	goreleaser release --snapshot
 docker_build:
-	docker build -t johnxu1989/alertmanager-webhook-feishu .
+	docker build -t everpcpc/alertmanager-webhook-feishu .
 docker_push:docker_build
-	docker push johnxu1989/alertmanager-webhook-feishu
+	docker push everpcpc/alertmanager-webhook-feishu

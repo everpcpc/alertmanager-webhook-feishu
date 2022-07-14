@@ -3,15 +3,17 @@ package server
 import (
 	"encoding/json"
 	"fmt"
+	"net/http"
+	"strings"
+	"time"
+
 	"github.com/davecgh/go-spew/spew"
 	"github.com/gorilla/mux"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"github.com/sirupsen/logrus"
-	"github.com/xujiahua/alertmanager-webhook-feishu/feishu"
-	"github.com/xujiahua/alertmanager-webhook-feishu/model"
-	"net/http"
-	"strings"
-	"time"
+
+	"alertmanager-webhook-feishu/feishu"
+	"alertmanager-webhook-feishu/model"
 )
 
 type Server struct {

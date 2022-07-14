@@ -4,15 +4,17 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/gorilla/mux"
-	"github.com/prometheus/alertmanager/template"
-	"github.com/stretchr/testify/require"
-	"github.com/xujiahua/alertmanager-webhook-feishu/feishu"
 	"io"
 	"net/http"
 	"net/http/httptest"
 	"testing"
 	"time"
+
+	"github.com/gorilla/mux"
+	"github.com/prometheus/alertmanager/template"
+	"github.com/stretchr/testify/require"
+
+	"alertmanager-webhook-feishu/feishu"
 )
 
 func TestServer_hook(t *testing.T) {

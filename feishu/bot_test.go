@@ -2,15 +2,17 @@ package feishu
 
 import (
 	"encoding/json"
+	"reflect"
+	"testing"
+	"time"
+
 	"github.com/davecgh/go-spew/spew"
 	"github.com/prometheus/alertmanager/template"
 	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/require"
-	"github.com/xujiahua/alertmanager-webhook-feishu/config"
-	"github.com/xujiahua/alertmanager-webhook-feishu/model"
-	"reflect"
-	"testing"
-	"time"
+
+	"alertmanager-webhook-feishu/config"
+	"alertmanager-webhook-feishu/model"
 )
 
 func getConf() *config.Config {

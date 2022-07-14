@@ -2,14 +2,16 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/sirupsen/logrus"
-	"github.com/spf13/cobra"
-	"github.com/xujiahua/alertmanager-webhook-feishu/config"
-	"github.com/xujiahua/alertmanager-webhook-feishu/feishu"
-	"github.com/xujiahua/alertmanager-webhook-feishu/server"
 	"os"
 	"os/signal"
 	"syscall"
+
+	"github.com/sirupsen/logrus"
+	"github.com/spf13/cobra"
+
+	"alertmanager-webhook-feishu/config"
+	"alertmanager-webhook-feishu/feishu"
+	"alertmanager-webhook-feishu/server"
 )
 
 var port int

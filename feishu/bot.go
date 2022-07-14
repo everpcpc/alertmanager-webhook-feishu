@@ -5,15 +5,17 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/icza/gox/stringsx"
-	"github.com/sirupsen/logrus"
-	"github.com/xujiahua/alertmanager-webhook-feishu/config"
-	"github.com/xujiahua/alertmanager-webhook-feishu/feishu/rotate"
-	"github.com/xujiahua/alertmanager-webhook-feishu/model"
-	"github.com/xujiahua/alertmanager-webhook-feishu/tmpl"
 	"strings"
 	"text/template"
 	"time"
+
+	"github.com/icza/gox/stringsx"
+	"github.com/sirupsen/logrus"
+
+	"alertmanager-webhook-feishu/config"
+	"alertmanager-webhook-feishu/feishu/rotate"
+	"alertmanager-webhook-feishu/model"
+	"alertmanager-webhook-feishu/tmpl"
 )
 
 type Bot struct {
