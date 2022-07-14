@@ -49,7 +49,25 @@ func init() {
 			}
 			return fmt.Sprintf("[%s](%s)", k, v)
 		},
+		"displayLabels": func(labels map[string]string) string {
+			s := ""
+			for k, v := range labels {
+				switch k {
+				case "alertname", "cluster", "prometheus", "stage", "uid", "instance", "reason", "service", "endpoint":
+					continue
+				default:
+					s += fmt.Sprintf("%s:%s, ", k, v)
+				}
+			}
+			return s
+		},
 		"contains": strings.Contains,
+		"escapeQuotes": func(s string) string {
+			s = fmt.Sprintf("%#v", s)
+			s = strings.TrimPrefix(s, "\"")
+			s = strings.TrimSuffix(s, "\"")
+			return s
+		},
 	}
 
 	// embed
